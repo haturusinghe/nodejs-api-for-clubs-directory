@@ -2,11 +2,11 @@ const Club = require("../models/club.model.js");
 
 // Create and Save a new Club
 exports.create = (req, res) => {
+  console.log("Attempting to create a new club");
+  var hello = JSON.stringify(req);
   // Validate request
   if (!req.body.content) {
-    return res.status(400).send({
-      message: "content can not be empty",
-    });
+    return res.status(400).send(hello);
   }
 
   // Create a Club
@@ -33,6 +33,7 @@ exports.create = (req, res) => {
 exports.findAll = (req, res) => {
   Club.find()
     .then((clubs) => {
+      console.log("Displaying all clubs");
       res.send(clubs);
     })
     .catch((err) => {

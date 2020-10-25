@@ -4,7 +4,7 @@ const ClubSchema = mongoose.Schema(
   {
     name: String,
     district: String,
-    contactNum: String,
+    contactNum: String
   },
   {
     timestamps: true,

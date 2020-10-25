@@ -30,15 +30,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
 
+// Require Clubs routes
+require("./app/routes/club.routes.js")(app);
+
 // define a simple route
 app.get("/", (req, res) => {
   res.json({
     message: "Welcome to Rotatract Club Directory!!!",
   });
 });
-
-// Require Clubs routes
-require("./app/routes/club.routes.js")(app);
 
 // listen for requests
 /*
