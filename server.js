@@ -15,7 +15,7 @@ if (process.env.MONGODB_URI) {
       useUnifiedTopology: true,
     })
     .then(() => {
-      console.log("Successfully connected to the database");
+      console.log("Successfully connected to the database using ENV");
     })
     .catch((err) => {
       console.log("Could not connect to the database. Exiting now...", err);
