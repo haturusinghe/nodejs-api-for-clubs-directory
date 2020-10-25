@@ -11,9 +11,11 @@ exports.create = (req, res) => {
 
   // Create a Club
   const club = new Club({
-    title: req.body.title,
-    district: req.body.district,
+    name: req.body.name,
+    address: req.body.address,
     contactNum: req.body.contactNum,
+    email: req.body.email,
+    website: req.body.website,
   });
 
   // Save Club in the database

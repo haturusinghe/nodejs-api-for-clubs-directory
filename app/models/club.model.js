@@ -3,8 +3,10 @@ const mongoose = require("mongoose");
 const ClubSchema = mongoose.Schema(
   {
     name: String,
-    district: String,
-    contactNum: String
+    address: String,
+    contactNum: String,
+    email: String,
+    website: String,
   },
   {
     timestamps: true,
