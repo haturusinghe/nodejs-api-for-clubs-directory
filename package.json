@@ -4,7 +4,8 @@
   "description": "rotract club directory api alpha ",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "test": "nodemon server.js",
+    "start": "node server.js"
   },
   "keywords": [
     "Rotract",
