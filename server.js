@@ -28,7 +28,7 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // parse requests of content-type - application/json
-app.use(bodyParser.json());
+app.use(express.json());
 
 // Require Clubs routes
 require("./app/routes/club.routes.js")(app);

@@ -3,10 +3,9 @@ const Club = require("../models/club.model.js");
 // Create and Save a new Club
 exports.create = (req, res) => {
   console.log("Attempting to create a new club");
-  var hello = JSON.stringify(req);
   // Validate request
   if (!req.body.content) {
-    return res.status(400).send(hello);
+    return res.status(400).send({ message: "empty request" });
   }
 
   // Create a Club
