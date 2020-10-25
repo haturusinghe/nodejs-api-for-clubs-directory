@@ -11,8 +11,8 @@ exports.create = (req, res) => {
 
   // Create a Club
   const club = new Club({
-    title: req.body.title || "Untitled Club",
-    content: req.body.content,
+    title: req.body.title,
+    district: req.body.district,
     contactNum: req.body.contactNum,
   });
 
