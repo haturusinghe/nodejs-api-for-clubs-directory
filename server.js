@@ -8,18 +8,33 @@ const mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
 
 // Connecting to the database
-mongoose
-  .connect(dbConfig.url, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => {
-    console.log("Successfully connected to the database");
-  })
-  .catch((err) => {
-    console.log("Could not connect to the database. Exiting now...", err);
-    process.exit();
-  });
+if (process.env.MONGODB_URI) {
+  mongoose
+    .connect(process.env.MONGODB_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    })
+    .then(() => {
+      console.log("Successfully connected to the database");
+    })
+    .catch((err) => {
+      console.log("Could not connect to the database. Exiting now...", err);
+      process.exit();
+    });
+} else {
+  mongoose
+    .connect(dbConfig.url, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    })
+    .then(() => {
+      console.log("Successfully connected to the database");
+    })
+    .catch((err) => {
+      console.log("Could not connect to the database. Exiting now...", err);
+      process.exit();
+    });
+}
 
 // create express app
 const app = express();
