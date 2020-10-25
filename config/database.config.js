@@ -1,3 +1,3 @@
 module.exports = {
-  url: "mongodb://localhost:27017/easy-notes",
+  url: "mongodb://hitboii:hitboii123@ds051585.mlab.com:51585/heroku_r7qptd3g",
 };
