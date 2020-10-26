@@ -38,4 +38,4 @@ exports.list = (perPage, page) => {
   });
 };
 
-module.exports = Club;
+exports.Club = Club;
