@@ -40,6 +40,7 @@ if (process.env.MONGODB_URI) {
 require("./app/auth/auth.js");
 
 const secureRoute = require("./app/routes/secure.routes");
+const securePost = require("./app/routes/test.routes");
 
 // create express app
 const app = express();
@@ -57,6 +58,11 @@ require("./app/routes/user.routes")(app);
 
 //Secure Route
 app.use("/user", passport.authenticate("jwt", { session: false }), secureRoute);
+app.use(
+  "/clubs/create",
+  passport.authenticate("jwt", { session: false }),
+  secureRoute
+);
 
 // define a simple route
 app.get("/", (req, res) => {
