@@ -15,6 +15,8 @@ const UserSchema = new Schema({
   },
 });
 
+UserSchema.plugin(passportLocalMongoose);
+
 UserSchema.pre("save", async function (next) {
   const user = this;
   const hash = await bcrypt.hash(this.password, 10);
