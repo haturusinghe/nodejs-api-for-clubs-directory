@@ -61,7 +61,7 @@ app.use("/user", passport.authenticate("jwt", { session: false }), secureRoute);
 app.use(
   "/clubs/create",
   passport.authenticate("jwt", { session: false }),
-  secureRoute
+  securePost
 );
 
 // define a simple route
