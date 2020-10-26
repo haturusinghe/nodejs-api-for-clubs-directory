@@ -10,7 +10,7 @@ exports.create = (req, res) => {
   }
 
   // Create a Club
-  const club = new Club({
+  const club = new Club.Club({
     name: req.body.name,
     address: req.body.address,
     contactNum: req.body.contactNum,
