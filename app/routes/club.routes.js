@@ -2,10 +2,10 @@ module.exports = (app) => {
   const clubs = require("../controllers/club.controller.js");
 
   // Create a new Note
-  app.post("/clubs", clubs.list);
+  app.post("/clubs", clubs.create);
 
   // Retrieve all clubs
-  app.get("/clubs", clubs.findAll);
+  app.get("/clubs", clubs.list);
 
   // Retrieve a single Note with clubId
   app.get("/clubs/:clubId", clubs.findOne);
