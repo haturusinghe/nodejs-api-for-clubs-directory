@@ -47,6 +47,8 @@ app.use(express.json());
 
 // Require Clubs routes
 require("./app/routes/club.routes.js")(app);
+// Require Users routes
+require("./app/routes/user.routes")(app);
 
 // define a simple route
 app.get("/", (req, res) => {
