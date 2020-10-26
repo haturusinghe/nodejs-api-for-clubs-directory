@@ -2,7 +2,11 @@ module.exports = (app) => {
   const clubs = require("../controllers/club.controller.js");
 
   // Create a new Note
-  app.post("/clubs", clubs.create);
+  app.post(
+    "/clubs",
+    passport.authenticate("jwt", { session: false }),
+    clubs.create
+  );
 
   // Retrieve all clubs
   app.get("/clubs", clubs.list);
