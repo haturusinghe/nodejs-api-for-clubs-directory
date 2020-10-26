@@ -59,7 +59,7 @@ require("./app/routes/user.routes")(app);
 //Secure Route
 app.use("/user", passport.authenticate("jwt", { session: false }), secureRoute);
 app.use(
-  "/clubs/create",
+  "/edit/create",
   passport.authenticate("jwt", { session: false }),
   securePost
 );

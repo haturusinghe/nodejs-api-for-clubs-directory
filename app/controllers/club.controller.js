@@ -1,4 +1,4 @@
-const Club = require("../models/club.model.js");
+const ClubModel = require("../models/club.model.js");
 
 // Create and Save a new Club
 exports.create = (req, res) => {
@@ -10,7 +10,7 @@ exports.create = (req, res) => {
   }
 
   // Create a Club
-  const club = new Club.Club({
+  const club = new ClubModel.Club({
     name: req.body.name,
     address: req.body.address,
     contactNum: req.body.contactNum,
@@ -33,7 +33,7 @@ exports.create = (req, res) => {
 
 // Retrieve and return all clubs from the database.
 exports.findAll = (req, res) => {
-  Club.find()
+  ClubModel.find()
     .then((clubs) => {
       console.log("Displaying all clubs");
       res.send(clubs);
@@ -56,14 +56,14 @@ exports.list = (req, res) => {
       page = Number.isInteger(req.query.page) ? req.query.page : 0;
     }
   }
-  Club.list(limit, page).then((result) => {
+  ClubModel.list(limit, page).then((result) => {
     res.status(200).send(result);
   });
 };
 
 // Find a single club with a clubId
 exports.findOne = (req, res) => {
-  Club.findById(req.params.clubId)
+  ClubModel.Club.findById(req.params.clubId)
     .then((club) => {
       if (!club) {
         return res.status(404).send({
@@ -94,7 +94,7 @@ exports.update = (req, res) => {
   }
 
   // Find club and update it with the request body
-  Club.findByIdAndUpdate(
+  ClubModel.Club.findByIdAndUpdate(
     req.params.clubId,
     {
       title: req.body.title || "Untitled Club",
@@ -124,7 +124,7 @@ exports.update = (req, res) => {
 
 // Delete a club with the specified clubId in the request
 exports.delete = (req, res) => {
-  Club.findByIdAndRemove(req.params.clubId)
+  ClubModel.Club.findByIdAndRemove(req.params.clubId)
     .then((club) => {
       if (!club) {
         return res.status(404).send({
