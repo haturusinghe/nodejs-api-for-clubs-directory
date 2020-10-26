@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const passport = require("passport");
 
 // Configuring the database
 const dbConfig = require("./config/database.config.js");
@@ -36,6 +37,10 @@ if (process.env.MONGODB_URI) {
     });
 }
 
+require("./app/auth/auth.js");
+
+const secureRoute = require("./app/routes/secure.routes");
+
 // create express app
 const app = express();
 
@@ -49,6 +54,9 @@ app.use(express.json());
 require("./app/routes/club.routes.js")(app);
 // Require Users routes
 require("./app/routes/user.routes")(app);
+
+//Secure Route
+app.use("/user", passport.authenticate("jwt", { session: false }), secureRoute);
 
 // define a simple route
 app.get("/", (req, res) => {
