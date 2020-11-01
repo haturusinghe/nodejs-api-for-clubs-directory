@@ -46,11 +46,9 @@ exports.findAll = (req, res) => {
 };
 
 exports.list = (req, res) => {
-  console.log("Hello from club.controller list function ");
   let limit =
     req.query.limit && req.query.limit <= 100 ? parseInt(req.query.limit) : 10;
   let page = 0;
-  let name = "";
   if (req.query) {
     if (req.query.page) {
       req.query.page = parseInt(req.query.page);
@@ -58,6 +56,7 @@ exports.list = (req, res) => {
     }
     if (req.query.name) {
       name = req.query.name;
+      console.log(name);
     }
   }
   ClubModel.list(limit, page, name).then((result) => {
