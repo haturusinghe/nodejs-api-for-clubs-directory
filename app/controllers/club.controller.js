@@ -57,7 +57,7 @@ exports.list = (req, res) => {
     }
     if (req.query.name) {
       name = req.query.name;
-      console.log(typeof name);
+      console.log(name);
     }
   }
   ClubModel.list(limit, page, name).then((result) => {
