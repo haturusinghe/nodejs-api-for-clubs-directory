@@ -31,7 +31,7 @@ exports.list = (perPage, page, query) => {
     query = " ";
   }
   return new Promise((resolve, reject) => {
-    Club.find({ name: new RegExp(query, "i") })
+    Club.find( name: new RegExp(query, "i") )
       .limit(perPage)
       .skip(perPage * page)
       .exec(function (err, users) {
