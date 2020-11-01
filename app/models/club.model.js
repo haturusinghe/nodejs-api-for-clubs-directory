@@ -28,7 +28,7 @@ const Club = mongoose.model("Club", ClubSchema);
 
 exports.list = (perPage, page, query) => {
   return new Promise((resolve, reject) => {
-    Club.find({ email: /wired/i })
+    Club.find({ name: /University/i })
       .limit(perPage)
       .skip(perPage * page)
       .exec(function (err, users) {
