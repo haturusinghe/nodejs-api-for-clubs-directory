@@ -29,7 +29,7 @@ const Club = mongoose.model("Club", ClubSchema);
 exports.list = (perPage, page, query) => {
   const queryString = `/${query}/i`;
   return new Promise((resolve, reject) => {
-    Club.find({ name: { $regex: /uva/, $options: "i" } })
+    Club.find({ name: { $regex: query, $options: "i" } })
       .limit(perPage)
       .skip(perPage * page)
       .exec(function (err, users) {
