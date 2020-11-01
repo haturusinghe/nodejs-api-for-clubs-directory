@@ -27,8 +27,9 @@ const ClubSchema = mongoose.Schema({
 const Club = mongoose.model("Club", ClubSchema);
 
 exports.list = (perPage, page, query) => {
+  const queryString = `/${query}/i`;
   return new Promise((resolve, reject) => {
-    Club.find({ name: /University/i })
+    Club.find({ name: queryString })
       .limit(perPage)
       .skip(perPage * page)
       .exec(function (err, users) {
