@@ -40,7 +40,7 @@ if (process.env.MONGODB_URI) {
 require("./app/auth/auth.js");
 
 const secureRoute = require("./app/routes/secure.routes");
-const securePost = require("./app/routes/test.routes");
+const securePost = require("./app/routes/post.routes");
 
 // create express app
 const app = express();
