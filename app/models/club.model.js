@@ -19,13 +19,16 @@ const ClubSchema = mongoose.Schema({
     type: String,
     unique: true,
   },
+  clubPresident: {
+    type: String,
+  },
 });
 
 const Club = mongoose.model("Club", ClubSchema);
 
-exports.list = (perPage, page) => {
+exports.list = (perPage, page, query) => {
   return new Promise((resolve, reject) => {
-    Club.find()
+    Club.find({ name: `/${query}/` })
       .limit(perPage)
       .skip(perPage * page)
       .exec(function (err, users) {
