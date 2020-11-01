@@ -27,7 +27,7 @@ const ClubSchema = mongoose.Schema({
 const Club = mongoose.model("Club", ClubSchema);
 
 exports.list = (perPage, page, query) => {
-  var xquery = query;
+  var xquery = "Uni";
 
   return new Promise((resolve, reject) => {
     Club.find({ name: new RegExp(xquery, "i") })
