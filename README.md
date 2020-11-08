@@ -34,10 +34,10 @@ API sends the data for a single club with **clubId = id**.
 # ENDPOINTS 3 & 4:
 
 https://rest-clubs.herokuapp.com/login
-When the users sends a post request with valid credentials , returns the user a reponse containing a JWT which expires within 2 hours.\
+When the users sends a POST request with valid credentials , returns the user a reponse containing a JWT which expires within 2 hours.\
 \
 https://rest-clubs.herokuapp.com/signup
-Allows user to signup by sending a post request with user details.
+Allows user to signup by sending a POST request with user details.
 
 ## Once a user has succesfully logged in , the following endpoints will be accessible
 
