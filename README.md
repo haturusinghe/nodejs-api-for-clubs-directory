@@ -33,22 +33,22 @@ API sends the data for a single club with **clubId = id**.
 
 # ENDPOINTS 3 & 4:
 
-**https://rest-clubs.herokuapp.com/login**\
+https://rest-clubs.herokuapp.com/login\
 When the users sends a post request with valid credentials , returns the user a reponse containing a JWT which expires within 2 hours.\
 \
-**https://rest-clubs.herokuapp.com/signup**\
+https://rest-clubs.herokuapp.com/signup
 Allows user to signup by sending a post request with user details.
 
 ## Once a user has succesfully logged in , the following endpoints will be accessible
 
 # ENDPOINTS 5:
 
-**https://rest-clubs.herokuapp.com/clubs/new**\
+https://rest-clubs.herokuapp.com/clubs/new
 By sending a POST request to this endpoint with valid data , user can create a new club entry.
 
 # ENDPOINTS 6:
 
-**https://rest-clubs.herokuapp.com/clubs/:id**\
+\*\*https://rest-clubs.herokuapp.com/clubs/:id
 By sending a UPDATE request to this endpoint with valid data , user can update an existing club entry with clubId = id.
 
 By sending a DELETE request to this endpoint user can delete an existing club entry with clubId = id.
