@@ -11,7 +11,7 @@ mongoose.Promise = global.Promise;
 // Connecting to the database
 if (process.env.CLOUDATLAS_URI) {
   mongoose
-    .connect(process.env.MONGODB_URI, {
+    .connect(process.env.CLOUDATLAS_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     })
