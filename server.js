@@ -12,7 +12,6 @@ mongoose.Promise = global.Promise;
 if (process.env.CLOUDATLAS_URI) {
   mongoose
     .connect(process.env.CLOUDATLAS_URI, {
-      dbName: heroku_r7qptd3g,
       useNewUrlParser: true,
       useUnifiedTopology: true,
     })
