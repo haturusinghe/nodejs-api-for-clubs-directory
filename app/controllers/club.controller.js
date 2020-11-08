@@ -16,6 +16,7 @@ exports.create = (req, res) => {
     contactNum: req.body.contactNum,
     email: req.body.email,
     website: req.body.website,
+    clubPresident: req.body.clubPresident,
   });
 
   // Save Club in the database
