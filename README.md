@@ -11,7 +11,7 @@ PARAMETERS:
 ## - name
 
 The API sends you all club entries with a club name matching with the requested parameter.\
-Example: https://rest-clubs.herokuapp.com/list?name=%22colombo%22
+Example: https://rest-clubs.herokuapp.com/list?name="colombo"
 
 ## - limit
 
