@@ -10,6 +10,9 @@ passport.use(
     {
       secretOrKey: "TOP_SECRET",
       jwtFromRequest: ExtractJWT.fromUrlQueryParameter("secret_token"),
+      jsonWebTokenOptions: {
+        expiresIn: "2h",
+      },
     },
     async (token, done) => {
       try {
