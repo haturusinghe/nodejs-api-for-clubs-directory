@@ -9,9 +9,9 @@ const mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
 
 // Connecting to the database
-if (process.env.CLOUDATLAS_URI) {
+if (process.env.MONGO_URI) {
   mongoose
-    .connect(process.env.CLOUDATLAS_URI, {
+    .connect(process.env.MONGO_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     })
