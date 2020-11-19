@@ -12,7 +12,7 @@ mongoose.Promise = global.Promise;
 if (process.env.MONGO_URI) {
   mongoose
     .connect(process.env.MONGO_URI, {
-      dbName: heroku_r7qptd3g,
+      dbName: "heroku_r7qptd3g",
       useNewUrlParser: true,
       useUnifiedTopology: true,
     })
