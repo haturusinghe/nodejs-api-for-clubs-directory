@@ -83,4 +83,25 @@ exports.nearby = (perPage, page, long, latt) => {
   });
 };
 
+exports.within = (topLong, topLatt, botLong, botLatt) => {
+  return new Promise((resolve, reject) => {
+    Club.find({
+      location: {
+        $geoWithin: {
+          $box: [
+            [topLong, topLatt],
+            [botLong, botLatt],
+          ],
+        },
+      },
+    }).exec(function (err, users) {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(users);
+      }
+    });
+  });
+};
+
 exports.Club = Club;
