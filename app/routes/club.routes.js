@@ -12,6 +12,9 @@ module.exports = (app) => {
 
   // Retrieve nearby clubs to a given coordinate
   app.get("/nearby", clubs.nearby);
+
+  // Retrieve nearby clubs within a given boundry box of coordinates
+  app.get("/within", clubs.within);
   /*
 
   // Update a Note with clubId
