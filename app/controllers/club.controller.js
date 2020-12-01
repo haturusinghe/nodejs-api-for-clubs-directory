@@ -80,6 +80,26 @@ exports.nearby = (req, res) => {
   }
 };
 
+exports.within = (req, res) => {
+  let topLong, topLatt, botLong, botLatt;
+  if (
+    req.query.topLong &&
+    req.query.topLatt &&
+    req.query.botLong &&
+    req.query.botLatt
+  ) {
+    topLong = parseFloat(req.query.topLong);
+    topLatt = parseFloat(req.query.topLatt);
+    botLong = parseFloat(req.query.botLong);
+    botLatt = parseFloat(req.query.botLatt);
+    ClubModel.within(topLong, topLatt, botLong, botLatt).then((result) => {
+      res.status(200).send(result);
+    });
+  } else {
+    res.status(404).send("Invalid Coordinates");
+  }
+};
+
 // Find a single club with a clubId
 exports.findOne = (req, res) => {
   ClubModel.Club.findById(req.params.clubId)
