@@ -76,7 +76,7 @@ exports.nearby = (req, res) => {
       res.status(200).send(result);
     });
   } else {
-    console.log("Invalid Coordinates");
+    res.status(404).send("Invalid Coordinates");
   }
 };
 
