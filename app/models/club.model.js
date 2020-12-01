@@ -59,7 +59,7 @@ exports.list = (perPage, page, query) => {
   });
 };
 
-exports.nearby = (perPage, page, query, long, latt) => {
+exports.nearby = (perPage, page, long, latt) => {
   return new Promise((resolve, reject) => {
     Club.find({
       location: {
