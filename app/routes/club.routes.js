@@ -9,6 +9,9 @@ module.exports = (app) => {
 
   // Retrieve a single Note with clubId
   app.get("/list/:clubId", clubs.findOne);
+
+  // Retrieve nearby clubs to a given coordinate
+  app.get("/nearby", clubs.nearby);
   /*
 
   // Update a Note with clubId
