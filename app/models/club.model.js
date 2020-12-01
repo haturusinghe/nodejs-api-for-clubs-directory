@@ -64,11 +64,9 @@ exports.nearby = (perPage, page, query, long, latt) => {
     Club.find({
       location: {
         $near: {
-          $maxDistance: 1000,
-          $geometry: {
-            type: "Point",
-            coordinates: [long, latt],
-          },
+          $geometry: { type: "Point", coordinates: [long, latt] },
+          $minDistance: 1000,
+          $maxDistance: 5000,
         },
       },
     })
