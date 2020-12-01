@@ -1,5 +1,13 @@
 const mongoose = require("mongoose");
 
+const LocSchema = new mongoose.Schema({
+  type: {
+    type: String,
+    default: "Point",
+  },
+  coordinates: { type: [Number], index: "2dsphere" },
+});
+
 const ClubSchema = mongoose.Schema({
   name: {
     type: String,
@@ -22,6 +30,7 @@ const ClubSchema = mongoose.Schema({
   clubPresident: {
     type: String,
   },
+  geometry: LocSchema,
 });
 
 const Club = mongoose.model("Club", ClubSchema);
@@ -41,5 +50,7 @@ exports.list = (perPage, page, query) => {
       });
   });
 };
+
+exports.nearby = () => {};
 
 exports.Club = Club;
