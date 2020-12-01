@@ -66,6 +66,20 @@ exports.list = (req, res) => {
   });
 };
 
+exports.nearby = (req, res) => {
+  let long = 0;
+  let latt = 0;
+  if (!req.query.long && !req.query.long) {
+    long = parseFloat(req.query.long);
+    latt = parseFloat(req.query.latt);
+    ClubModel.nearby(5, 1, long, latt).then((result) => {
+      res.status(200).send(result);
+    });
+  } else {
+    console.log("Invalid Coordinates");
+  }
+};
+
 // Find a single club with a clubId
 exports.findOne = (req, res) => {
   ClubModel.Club.findById(req.params.clubId)
