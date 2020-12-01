@@ -3,9 +3,13 @@ const mongoose = require("mongoose");
 const LocSchema = new mongoose.Schema({
   type: {
     type: String,
-    default: "Point",
+    enum: ["Point"],
+    required: true,
   },
-  coordinates: { type: [Number], index: "2dsphere" },
+  coordinates: {
+    type: [Number],
+    required: true,
+  },
 });
 
 const ClubSchema = mongoose.Schema({
@@ -30,7 +34,11 @@ const ClubSchema = mongoose.Schema({
   clubPresident: {
     type: String,
   },
-  geometry: LocSchema,
+  location: {
+    type: LocSchema,
+    required: true,
+    index: "2dsphere",
+  },
 });
 
 const Club = mongoose.model("Club", ClubSchema);
@@ -51,6 +59,29 @@ exports.list = (perPage, page, query) => {
   });
 };
 
-exports.nearby = () => {};
+exports.nearby = (perPage, page, query, long, latt) => {
+  return new Promise((resolve, reject) => {
+    Club.find({
+      location: {
+        $near: {
+          $maxDistance: 1000,
+          $geometry: {
+            type: "Point",
+            coordinates: [long, latt],
+          },
+        },
+      },
+    })
+      .limit(perPage)
+      .skip(perPage * page)
+      .exec(function (err, users) {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(users);
+        }
+      });
+  });
+};
 
 exports.Club = Club;
