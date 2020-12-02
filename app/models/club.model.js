@@ -18,7 +18,7 @@ const ClubSchema = mongoose.Schema({
     required: true,
     unique: true,
   },
-  address: String,
+  mailingAddress: String,
   contactNum: {
     type: String,
     unique: true,
@@ -32,6 +32,18 @@ const ClubSchema = mongoose.Schema({
     unique: true,
   },
   clubPresident: {
+    type: String,
+  },
+  meetingDay: {
+    type: String,
+  },
+  meetingTime: {
+    type: String,
+  },
+  meetingAddress: {
+    type: String,
+  },
+  meetingLanguage: {
     type: String,
   },
   location: {
