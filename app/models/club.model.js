@@ -75,25 +75,22 @@ exports.list = (perPage, page, query) => {
 };
 
 exports.nearby = (perPage, page, long, latt) => {
-  console.log(`received coordinates ${long} ${latt}`);
+  console.log(`#*#*#*#*#received coordinates ${long} ${latt}`);
   return new Promise((resolve, reject) => {
     Club.find({
       location: {
         $near: {
-          $geometry: { type: "Point", coordinates: [long, latt] },
           $maxDistance: 100000,
+          $geometry: { type: "Point", coordinates: [long, latt] },
         },
       },
-    })
-      .limit(perPage)
-      .skip(perPage * page)
-      .exec(function (err, users) {
-        if (err) {
-          reject(err);
-        } else {
-          resolve(users);
-        }
-      });
+    }).exec(function (err, users) {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(users);
+      }
+    });
   });
 };
 
