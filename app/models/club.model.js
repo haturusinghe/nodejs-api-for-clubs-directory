@@ -36,15 +36,18 @@ const ClubSchema = mongoose.Schema({
   },
   meetingDay: {
     type: String,
+    required: true,
   },
   meetingTime: {
     type: String,
   },
   meetingAddress: {
     type: String,
+    required: true,
   },
   meetingLanguage: {
     type: String,
+    required: true,
   },
   location: {
     type: LocSchema,
