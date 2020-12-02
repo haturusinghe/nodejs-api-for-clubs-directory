@@ -81,7 +81,7 @@ exports.nearby = (perPage, page, long, latt) => {
       location: {
         $near: {
           $geometry: { type: "Point", coordinates: [long, latt] },
-          $maxDistance: 50000,
+          $maxDistance: 100000,
         },
       },
     })
