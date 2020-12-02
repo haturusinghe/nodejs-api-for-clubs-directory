@@ -12,11 +12,16 @@ exports.create = (req, res) => {
   // Create a Club
   const club = new ClubModel.Club({
     name: req.body.name,
-    address: req.body.address,
+    mailingAddress: req.body.mailingAddress,
     contactNum: req.body.contactNum,
     email: req.body.email,
     website: req.body.website,
     clubPresident: req.body.clubPresident,
+    location: req.body.location,
+    meetingDay: req.body.meetingDay,
+    meetingTime: req.body.meetingTime,
+    meetingAddress: req.body.meetingAddress,
+    meetingLanguage: req.body.meetingLanguage,
   });
 
   // Save Club in the database
