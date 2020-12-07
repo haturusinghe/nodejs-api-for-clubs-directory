@@ -98,7 +98,7 @@ exports.filter = (req, res) => {
   }
 
   meetingDay === 0 ? null : searchObject.$and.push({ meetingDay: meetingDay });
-  meetinglanguage === 0
+  meetingLanguage === 0
     ? null
     : searchObject.$and.push({ meetingLanguage: meetingLanguage });
 
