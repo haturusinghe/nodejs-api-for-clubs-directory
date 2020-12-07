@@ -112,7 +112,7 @@ exports.filter = (req, res) => {
       page = Number.isInteger(req.query.page) ? req.query.page : 0;
     }
   }
-  ClubModel.list(limit, page, oldQuery).then((result) => {
+  ClubModel.filter(limit, page, oldQuery).then((result) => {
     res.status(200).send(result);
   });
 };
