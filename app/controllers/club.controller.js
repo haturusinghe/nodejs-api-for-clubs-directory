@@ -56,6 +56,7 @@ exports.list = (req, res) => {
     req.query.limit && req.query.limit <= 100 ? parseInt(req.query.limit) : 10;
   let page = 0;
   let name = "";
+  console.log(req.query);
   if (req.query) {
     if (req.query.page) {
       req.query.page = parseInt(req.query.page);
