@@ -81,6 +81,26 @@ exports.filter = (req, res) => {
     latt = null,
   } = req.query;
   const searchObject = { $and: [] };
+  name = { $regex: name, $options: "i" };
+  searchObject.$and.push({ name: name });
+
+  if (long && latt) {
+    const location = {
+      location: {
+        $near: {
+          $maxDistance: 100000,
+          $geometry: { type: "Point", coordinates: [long, latt] },
+        },
+      },
+    };
+    searchObject.$and.push(location);
+  }
+
+  meetingDay === 0 ? null : searchObject.$and.push({ meetingDay: meetingDay });
+  meetinglanguage === 0
+    ? null
+    : searchObject.$and.push({ meetingLanguage: meetingLanguage });
+
   console.log(searchObject);
   let limit =
     req.query.limit && req.query.limit <= 100 ? parseInt(req.query.limit) : 10;
