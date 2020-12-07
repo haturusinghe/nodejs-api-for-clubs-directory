@@ -73,7 +73,7 @@ exports.list = (req, res) => {
 };
 
 exports.filter = (req, res) => {
-  const {
+  let {
     name = "",
     meetingDay = 0,
     meetingLanguage = 0,
