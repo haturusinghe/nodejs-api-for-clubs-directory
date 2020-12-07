@@ -81,6 +81,7 @@ exports.filter = (req, res) => {
     latt = null,
   } = req.query;
   const searchObject = { $and: [] };
+  const oldQuery = name;
   name = { $regex: name, $options: "i" };
   searchObject.$and.push({ name: name });
 
@@ -111,7 +112,7 @@ exports.filter = (req, res) => {
       page = Number.isInteger(req.query.page) ? req.query.page : 0;
     }
   }
-  ClubModel.list(limit, page, name).then((result) => {
+  ClubModel.list(limit, page, oldQuery).then((result) => {
     res.status(200).send(result);
   });
 };
