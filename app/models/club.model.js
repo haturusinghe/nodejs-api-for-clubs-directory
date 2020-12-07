@@ -74,6 +74,22 @@ exports.list = (perPage, page, query) => {
   });
 };
 
+exports.filter = (perPage, page, query) => {
+  console.log(`hello from ${query}`);
+  return new Promise((resolve, reject) => {
+    Club.find({ name: new RegExp(query, "i") })
+      .limit(perPage)
+      .skip(perPage * page)
+      .exec(function (err, users) {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(users);
+        }
+      });
+  });
+};
+
 exports.nearby = (perPage, page, long, latt) => {
   console.log(`#*#*#*#*#received coordinates ${long} ${latt}`);
   return new Promise((resolve, reject) => {
@@ -116,3 +132,21 @@ exports.within = (topLong, topLatt, botLong, botLatt) => {
 };
 
 exports.Club = Club;
+
+/*
+{
+$and:[{
+      location: {
+        $near: {
+          $maxDistance: 100000,
+          $geometry: { type: "Point", coordinates: [79.91, 6.97] },
+        },
+      },
+    },
+	{"meetingDay":"Thursday"},
+	{name:/gab/i},
+	{language:"English"}
+	]
+}
+
+*/

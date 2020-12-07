@@ -71,6 +71,26 @@ exports.list = (req, res) => {
   });
 };
 
+exports.filter = (req, res) => {
+  let limit =
+    req.query.limit && req.query.limit <= 100 ? parseInt(req.query.limit) : 10;
+  let page = 0;
+  let name = "";
+  if (req.query) {
+    if (req.query.page) {
+      req.query.page = parseInt(req.query.page);
+      page = Number.isInteger(req.query.page) ? req.query.page : 0;
+    }
+    if (req.query.name) {
+      name = req.query.name;
+      console.log(name);
+    }
+  }
+  ClubModel.list(limit, page, name).then((result) => {
+    res.status(200).send(result);
+  });
+};
+
 exports.nearby = (req, res) => {
   let long = 0;
   let latt = 0;

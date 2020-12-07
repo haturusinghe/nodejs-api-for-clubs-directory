@@ -7,6 +7,9 @@ module.exports = (app) => {
   // Retrieve all clubs
   app.get("/list", clubs.list);
 
+  // Filter all clubs
+  app.get("/filter", clubs.filter);
+
   // Retrieve a single Note with clubId
   app.get("/list/:clubId", clubs.findOne);
 
