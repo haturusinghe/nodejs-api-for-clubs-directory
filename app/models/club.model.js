@@ -77,7 +77,7 @@ exports.list = (perPage, page, query) => {
 exports.filter = (perPage, page, query) => {
   console.log(`hello from ${query}`);
   return new Promise((resolve, reject) => {
-    Club.find({ name: new RegExp(query, "i") })
+    Club.find(query)
       .limit(perPage)
       .skip(perPage * page)
       .exec(function (err, users) {
