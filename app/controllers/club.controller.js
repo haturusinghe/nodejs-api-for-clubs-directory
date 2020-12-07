@@ -102,9 +102,8 @@ exports.filter = (req, res) => {
     ? null
     : searchObject.$and.push({ meetingLanguage: meetingLanguage });
 
-  console.log(searchObject);
-  console.log(location);
-  console.log(name);
+  console.log(JSON.stringify(searchObject));
+
   let limit =
     req.query.limit && req.query.limit <= 100 ? parseInt(req.query.limit) : 10;
   let page = 0;
